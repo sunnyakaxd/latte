@@ -1,0 +1,13 @@
+Latte
+Database Utils
+Latte Core
+Dashboard
+Importer
+Job
+Quartz
+File Storage
+Business Process
+Latte Dev Utils
+Reminder Alert and Notification
+Payment Gateway Integration
+System Administration

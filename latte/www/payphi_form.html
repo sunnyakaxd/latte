@@ -1,0 +1,258 @@
+<html>
+<head>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+    <meta name="csrf_token" content="ABC"/>
+    <title></title>
+    <script type="text/javascript" src="sha.js"></script>
+    <script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+</head>
+<body>
+
+    <script>
+
+        $(document).ready(function() {
+                $(".ToBeHidden").hide();
+                const txnID = getParameterByName("merchantTxnID");
+                const txnAmount = getParameterByName("txnAmount");
+                const aggregatorID = getParameterByName("aggregatorID");
+                const returnURL = getParameterByName("returnURL");
+                const merchantID = getParameterByName("merchantID");
+                const apiparam = getParameterByName("apiparam");
+                const code = getParameterByName("code");
+                const txnDate = getParameterByName("txnDate");
+                document.forms.myForm.amount.value = txnAmount;
+                document.forms.myForm.merchantTxnNo.value = txnID;
+                document.forms.myForm.merchantID.value = merchantID;
+                document.forms.myForm.aggregatorID.value = aggregatorID;
+                document.forms.myForm.returnURL.value = returnURL;
+                document.forms.myForm.txnDate.value = txnDate;
+                document.forms.myForm.secureHash.value = code;
+                document.forms.myForm.action = apiparam;
+                // hmacResult = getHMACResult()
+
+                // $.ajax({
+                //     type:"POST",
+                //     url:"http:/localhost:8000/api/method/latte.payment_gateway_integration.web_form.payphi_payment_form.payphi_payment_form.store_hmac",
+                //     data: {"hmacResult":  hmacResult, "txnID":txnID}
+                // }).done(function ( res ) {
+                //     document.forms.myForm.submit();
+                // });
+
+                document.forms.myForm.submit();
+            });
+
+
+            function getParameterByName(name, url = window.location.href)
+            {
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+
+        function getHMACResult() {
+			var cardNo = document.forms["myForm"].cardNo.value
+			var cardExpiry = document.forms["myForm"].cardExpiry.value
+			var nameOnCard = document.forms["myForm"].nameOnCard.value
+			var cvv = document.forms["myForm"].cvv.value
+			var customerEmailID = document.forms["myForm"].customerEmailID.value
+			var customerMobileNo = document.forms["myForm"].customerMobileNo.value
+			var invoiceNo = document.forms["myForm"].invoiceNo.value
+			var hashInput = "";
+
+            hashInput =
+			document.forms["myForm"].addlParam1.value +
+			document.forms["myForm"].addlParam2.value +
+			document.forms["myForm"].aggregatorID.value +
+			document.forms["myForm"].allowDisablePaymentMode.value+
+			document.forms["myForm"].amount.value +cardExpiry + cardNo +
+			document.forms["myForm"].currencyCode.value +  customerEmailID + customerMobileNo +
+			document.forms["myForm"].customerName.value +
+			document.forms["myForm"].customerUPIAlias.value + cvv +
+			document.forms["myForm"].invoiceNo.value +
+			document.forms["myForm"].merchantID.value +
+			document.forms["myForm"].merchantTxnNo.value + nameOnCard +
+			document.forms["myForm"].payType.value +
+			document.forms["myForm"].paymentMode.value +
+			document.forms["myForm"].returnURL.value +
+			document.forms["myForm"].transactionType.value +
+			document.forms["myForm"].txnDate.value;
+
+			if(document.forms["myForm"].payType.value == 1){
+			    hashInput =
+				document.forms["myForm"].addlParam1.value +
+				document.forms["myForm"].aggregatorID.value +
+				document.forms["myForm"].allowDisablePaymentMode.value+
+				document.forms["myForm"].amount.value + cardExpiry + cardNo +
+				document.forms["myForm"].currencyCode.value +  customerEmailID + customerMobileNo +
+				document.forms["myForm"].customerName.value +
+				document.forms["myForm"].customerUPIAlias.value + cvv +
+				document.forms["myForm"].invoiceNo.value +
+				document.forms["myForm"].merchantID.value +
+				document.forms["myForm"].merchantTxnNo.value + nameOnCard +
+				document.forms["myForm"].payType.value +
+				document.forms["myForm"].paymentMode.value +
+				document.forms["myForm"].returnURL.value +
+				document.forms["myForm"].transactionType.value + document.forms["myForm"].txnDate.value;
+			}
+				/*document.forms["myForm"].amount.value + cardExp + cardNo +
+				document.forms["myForm"].currencyCode.value +  customerEmailID + cvv +
+				document.forms["myForm"].merchantID.value +
+				document.forms["myForm"].merchantTxnNo.value + nameOnCard +
+				document.forms["myForm"].payType.value + document.forms["myForm"].payType.value; */
+				//alert(hashInput);
+        //     var shaObj = new jsSHA("SHA-256", 'TEXT');
+		// 		//for ebs : 55dfbde55886fc7ac6275b6b
+		// 		//for fd : 66aabde55886fc7ac627edde
+        //     shaObj.setHMACKey("", "TEXT"); // use the key shared with the merchant
+        // document.getElementById("hashtext").innerHTML = hashInput
+        //     shaObj.update(hashInput);
+
+        //     var result = shaObj.getHMAC("HEX");
+        //     //alert(result);
+        //     document.forms.myForm.secureHash.value = result;
+        //     //5123456789012346  12  2035  100
+        //     return result;
+        }
+    </script>
+
+    <div class="ToBeHidden">
+{*
+        <b><i>(* indicates mandatory field)</i>Sale Request</b>
+
+       <!-- target="frame1" -->
+        <form id='myForm' name='myForm'  method='post' enctype="application/x-www-form-urlencoded">
+
+            <table width="100%" id="parenttab">
+                <tr>
+                    <td width="50px"> </td>
+                    <td width="350px">
+                        <table id='childtab'>
+                            <tr>
+                                <td> merchantID *: </td>
+                                <td> <input type="text" name="merchantID" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td> merchantTxnID *: </td>
+                                <td> <input type="text" name="merchantTxnNo" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td> txnAmount *: </td>
+                                <td> <input type="text" name="amount" value="100" /></td>
+                            </tr>
+                            <tr>
+                                <td> currencyCode *: </td>
+                                <td> <input type="text" name="currencyCode" value="356" /></td>
+                            </tr>
+							<tr>
+                                <td> Pay Type : </td>
+                                <td> <input type="text" name="payType" value="0" /></td>
+                            </tr><tr>
+                                <td> paymentMode : </td>
+                                <td> <input type="text" name="paymentMode" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> customerEmailID: </td>
+                                <td> <input type="text" name="customerEmailID" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> transactionType : </td>
+                                <td> <input type="text" name="transactionType" value="SALE" /></td>
+                            </tr>
+							<tr>
+                                <td> paymentOptionCodes: </td>
+                                <td> <input type="text" name="paymentOptionCodes" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> txnDate: </td>
+                                <td> <input type="text" name="txnDate" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> cardNo: </td>
+                                <td> <input type="text" name="cardNo" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> cardExp: </td>
+                                <td> <input type="text" name="cardExpiry" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> nameOnCard: </td>
+                                <td> <input type="text" name="nameOnCard" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> cvv: </td>
+                                <td> <input type="text" name="cvv" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> customerUPIAlias: </td>
+                                <td> <input type="text" name="customerUPIAlias" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> aggregatorID: </td>
+                                <td> <input type="text" name="aggregatorID" value=""/></td>
+                            </tr>
+							<tr>
+                                <td> remarks: </td>
+                                <td> <input type="text" name="remarks" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> customerName: </td>
+                                <td> <input type="text" name="customerName" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> customerMobileNo: </td>
+                                <td> <input type="text" name="customerMobileNo" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> invoiceNo: </td>
+                                <td> <input type="text" name="invoiceNo" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> allowDisablePaymentMode: </td>
+                                <td> <input type="text" name="allowDisablePaymentMode" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> returnURL: </td>
+                                <td> <input type="text" name="returnURL" value="" /></td>
+                            </tr>
+							<tr>
+                                <td> addlParam1: </td>
+                                <td> <input type="text" name="addlParam1" value="" /></td>
+                            </tr>
+
+							<tr>
+                                <td> addlParam2: </td>
+                                <td> <input type="text" name="addlParam2" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td> secureHash *: </td>
+                                <td> <input type="text" name="secureHash" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td>hashtext : </td>
+                                <td><p id="hashtext"></p></td>
+                            </tr>
+							 <tr>
+                                <td> Generate Hash : </td>
+                                <td> <input type=button value="click" onclick="getHMACResult()" /></td>
+                            </tr>
+                            <tr>
+                                <td> Submit : </td>
+                                <td> <input type="submit" name="submitbut" value="submit" /></td>
+                            </tr>
+                        </table>
+                    </td>
+					<!--<td><iframe name="frame1" width="100%" height="540px" id="frame1"></iframe></td>-->
+                </tr>
+            </table>
+        </form>
+        <span>
+
+            <span>
+            %}
+    </div>
+</body>
+
+</html>

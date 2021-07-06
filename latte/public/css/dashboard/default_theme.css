@@ -1,0 +1,232 @@
+:root {
+  --dashboard-background-color: #fff;
+  --dashboard-font-color: #36414c;
+}
+
+.dashboard-graph .row {
+  padding: 7px 15px 0px 15px;
+  min-height: 50px;
+}
+
+.dashboard-graph .row.filter-form {
+  min-height: 0px;
+}
+
+.dashboard-graph .row.filter-form .form-group {
+  padding-top: 7px;
+}
+
+.dashboard-graph .row .dashboard-count {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-graph .row .dashboard-count .big-val {
+  font-size: 7.2rem;
+  line-height: 7.2rem;
+}
+
+.cht-cont.ds-list .data-wrapper {
+  max-height: 40vw;
+  overflow-y: auto;
+}
+
+.cht-cont .chart-wrapper {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.cht-cont .chart-wrapper > div {
+  position: absolute;
+  color: darkred;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cht-cont .chart-actions {
+  z-index: 100;
+}
+
+.cht-cont .chart-wrapper .loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid grey; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.cht-cont .data-wrapper.load {
+  opacity: 0.4;
+}
+
+/* .datatable .dt-row { 
+  border: 1px solid rgba(0,0,0,0.125);
+  box-shadow: 0px 1px 0px -1px rgba(0,0,0,0.1), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 1px 2px 0px rgba(0,0,0,0.12);
+  --dt-border-color: white;
+}
+
+.datatable .dt-filter.dt-input {
+  outline: auto;
+  background-color: white;
+}
+
+.datatable {
+  border: 2px solid #eee;
+} */
+
+/* .cht-cont .chart-column-container {
+min-height: 80px;
+} */
+
+/* Grid Stack  */
+.dashboard-graph .grid-stack {
+  background-color: #f9fbfc;
+}
+
+.dashboard-graph .grid-stack .grid-stack-item {
+  background-color: white;
+}
+
+.dashboard-graph .grid-stack .grid-stack-item .grid-stack-item-content .ds-filter .form-group {
+  margin: 2px;
+  padding-top: 0px;
+}
+
+.dashboard-graph .grid-stack-item-content {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  text-align: center;
+  /* padding: 2px; */
+  border-radius: 3px;
+  /* box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) */
+  box-shadow: 0.1px 0.4px 0px darkgray;
+}
+
+.grid-stack .grid-stack-item .cht-cont.ds-list .data-wrapper {
+  max-height: none;
+}
+
+.grid-stack .grid-stack-item .title {
+  font-weight: 600;
+  font-size: 12px;
+  text-align: left;
+  color: #8d99a6;
+}
+
+.grid-stack .grid-stack-item .buttons ul {
+  right: 0;
+  left: 0;
+  margin-right: 14px;
+}
+
+.page-actions .check-fluid {
+  display: inline-block;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.dashboard-graph .grid-stack .grid-stack-item .row {
+  padding: 4px;
+  min-height: 0px;
+}
+
+.grid-stack .grid-stack-item .perfect-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-stack .grid-stack-item .datatable .dt-row{
+  position: relative !important;
+  top: auto !important;
+}
+
+.grid-stack .grid-stack-item-content::-webkit-scrollbar {
+  display: none;
+}
+.grid-stack .grid-stack-item-content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.grid-stack .grid-stack-item-content .dt-scrollable::-webkit-scrollbar {
+  display: none;
+}
+.grid-stack .grid-stack-item-content .dt-scrollable {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/** Spinner **/
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: darkgrey;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 24px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 42px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(18px, 0);
+  }
+}

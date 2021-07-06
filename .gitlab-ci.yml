@@ -1,0 +1,48 @@
+variables:
+  KAFKA_CONFIG: '{
+  "auto.offset.reset": "smallest",
+  "bootstrap.servers": "spine.ntex.com:10180",
+  "client.id": "er-latte-docker",
+  "default.topic.config": {
+   "acks": "all"
+  },
+  "fetch.message.max.bytes": "81920",
+  "group.id": "er-latte-docker-spine-client",
+  "request.required.acks": "1"
+ }'
+
+before_script:
+  - export DATE_TAG=`date +%d%m%Y-%H%M`
+  - export SHA_TAG=${CI_COMMIT_REF_NAME:-develop}-${CI_COMMIT_SHORT_SHA}
+
+stages:
+  - build_and_deploy
+
+latte-docker-build:
+  stage: build_and_deploy
+  script:
+    - pwd
+    - ./build-latte11.sh Dockerfile 11-base
+  tags:
+    - build-srv
+
+latte-docker16-build:
+  stage: build_and_deploy
+  script:
+    - pwd
+    - ./build-latte11.sh Dockerfile 11.1.16-base
+  tags:
+    - build-srv
+
+# latte-docker-deploy:
+#   stage: deploy
+#   script:
+#     #- docker push dock.elasticrun.in/er-latte11-base:${CI_COMMIT_REF_NAME:-develop}-deb
+#     - docker push yard.elasticrun.in/er-latte11-base:${CI_COMMIT_REF_NAME:-develop}-xenial
+#     - docker push yard.elasticrun.in/er-latte11.1.16-base:${CI_COMMIT_REF_NAME:-develop}-xenial
+#     - docker tag yard.elasticrun.in/er-latte11-base:${CI_COMMIT_REF_NAME:-develop}-xenial yard.elasticrun.in/er-latte11-base:${SHA_TAG}
+#     - docker push yard.elasticrun.in/er-latte11-base:${SHA_TAG}
+#     - echo "Pushed image yard.elasticrun.in/er-latte11-base:${SHA_TAG}"
+#   tags:
+#     - build-srv
+

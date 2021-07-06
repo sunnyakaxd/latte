@@ -1,0 +1,31 @@
+{
+ "custom_fields": [],
+ "custom_perms": [],
+ "doctype": "Notification Recipient",
+ "property_setters": [
+  {
+   "_assign": null,
+   "_comments": null,
+   "_liked_by": null,
+   "_user_tags": null,
+   "creation": "2018-05-18 15:41:44.174073",
+   "default_value": "",
+   "doc_type": "Notification Recipient",
+   "docstatus": 0,
+   "doctype_or_field": "DocField",
+   "field_name": "cc",
+   "idx": 0,
+   "modified": "2018-02-05 10:39:00.546645",
+   "modified_by": "Administrator",
+   "name": "Email Alert Recipient-cc-fieldtype",
+   "owner": "Administrator",
+   "parent": null,
+   "parentfield": null,
+   "parenttype": null,
+   "property": "fieldtype",
+   "property_type": "Select",
+   "value": "Text"
+  }
+ ],
+ "sync_on_migrate": 1
+}

@@ -1,0 +1,189 @@
+.erPrimaryBtn{
+  background: #ff7272; /* Old browsers */
+  background: -moz-linear-gradient(left, #ff7272 44%, #f47920 84%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #ff7272 44%,#f47920 84%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #ff7272 44%,#f47920 84%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7272', endColorstr='#f47920',GradientType=1 ); /* IE6-9 */
+  font-family: 'poppinsmedium';
+  border: 1px solid #ff7272;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  padding: 8px 20px;
+  /* transition:0.5s; */
+}
+
+.erPrimaryBtn:hover{
+  border: 1px solid rgba(89, 89, 89, 0.2);
+  color: #58585a;
+  background: #ffffff;
+}
+
+.erSecondaryBtn{
+  background: #58585a;
+  font-family: 'poppinsmedium';
+  border: 1px solid #58585a;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  padding: 8px 10px;
+    /* transition: 0.5s; */
+}
+
+.erSecondaryBtn:hover{
+  border: 1px solid rgba(89, 89, 89, 0.2);
+  color: #58585a;
+  background: #ffffff;
+}
+
+.erDefaultBtn{
+  background: #ffffff;
+  font-family: 'poppinsmedium';
+  border: 1px solid rgba(89, 89, 89, 0.2);;
+  border-radius: 4px;
+  color: #58585a;
+  font-size: 12px;
+  padding: 9px 17px;
+    /* transition: 0.5s; */
+}
+
+.erDefaultBtn:hover{
+  border: 1px solid rgba(89, 89, 89, 0.2);
+  color: #ffffff;
+  background: #58585a;
+}
+
+.floatRight{float: right;}
+
+.chkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.chkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid rgba(89, 89, 89, 0.2);
+  border-radius: 2px;
+  /* background-color: #eee; */
+}
+
+/* On mouse-over, add a grey background color */
+.chkbox:hover input ~ .checkmark {
+  /* background-color: #cccccc; */
+  /* border: 1px solid rgba(89, 89, 89, 0.2); */
+}
+
+/* When the checkbox is checked, add a blue background */
+.chkbox input:checked ~ .checkmark {
+  background-color: #f47920;
+  border: 1px solid #f47920;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.chkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.chkbox .checkmark:after {
+  left: 6px;
+    top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.pickColor{
+  background: transparent;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.labelInput{
+  margin-left: 9px;
+    width: 182px;
+}
+
+.lineColor{
+  padding: 9px 0px;
+}
+
+.form-horizontal .control-label{
+  font-family: 'poppinsregular';
+  font-weight: normal;
+  font-size: 12px;
+  color: #58585a;
+  text-align: right;
+  padding-top: 9px;
+}
+
+.form-control{
+  border: 1px solid rgba(89, 89, 89, 0.2);
+  border-radius: 4px;
+  color: #58585a;
+  font-family: 'poppinssemibold';
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.form-control:hover{
+  border: 1px solid #f47920;
+}
+
+.form-control:focus{
+  border: 1px solid #f47920;
+}
+
+.form-horizontal .form-group{
+  margin: 15px;
+}
+
+select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+select.minimal:focus {
+  background-image: linear-gradient(45deg, #f47920 50%, transparent 50%), linear-gradient(135deg, transparent 50%, #f47920 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: #f47920;
+  outline: 0;
+}

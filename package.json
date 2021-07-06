@@ -1,0 +1,35 @@
+{
+  "name": "latte",
+  "version": "1.0.0",
+  "description": "Frappe Latte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "chart.js": "^2.9.3",
+    "chartjs-plugin-datalabels": "^1.0.0",
+    "cookie": "^0.4.1",
+    "express": "^4.17.1",
+    "gridstack": "1.2.0",
+    "heatmap.js": "^2.0.5",
+    "http": "^0.0.1-security",
+    "leaflet": "^1.6.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet-easyprint": "^2.1.9",
+    "leaflet-geosearch": "^3.0.6",
+    "leaflet-measure": "^3.1.0",
+    "leaflet-polylinedecorator": "^1.6.0",
+    "leaflet.heat": "^0.2.0",
+    "leaflet.measurecontrol": "^1.1.0",
+    "path": "^0.12.7",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0",
+    "superagent": "^5.3.1",
+    "uuid": "^8.2.0"
+  },
+  "devDependencies": {}
+}

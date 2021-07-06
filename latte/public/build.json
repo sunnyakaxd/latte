@@ -1,0 +1,45 @@
+{
+  "js/latte.min.js": [
+    "public/js/latte-socketio-client.js",
+    "public/js/requests.js",
+    "public/js/latte.js",
+    "public/js/fields/*",
+    "public/js/powerflow.js",
+    "public/js/calendar.js",
+    "public/js/indicator.js",
+    "public/js/frappe/form/success_action.js",
+    "public/js/fields/float10.js"
+  ],
+  "js/latte-upload.min.js": [
+    "public/js/utils/upload.js",
+    "public/js/utils/attachments.js"
+  ],
+  "js/dashboard.min.js": [
+    "public/js/utils/csv-xls-export.js",
+    "public/js/utils/extensions.js",
+    "public/js/dashboard/dt_import.js",
+    "public/js/dashboard/dashboard_config.js",
+    "public/js/dashboard/dashboard_dataslice.js",
+    "public/js/dashboard/dashboard_dataheader.js",
+    "public/js/dashboard/data_slice/map_dataslice.js",
+    "public/js/dashboard/data_slice/chart_dataslice.js",
+    "public/js/dashboard/data_slice/count_dataslice.js",
+    "public/js/dashboard/data_slice/list_dataslice.js",
+    "public/js/dashboard/data_slice/grid_dataslice.js",
+    "public/js/dashboard/data_slice/filter_dataslice.js",
+    "public/js/dashboard/data_slice/html_dataslice.js",
+    "public/js/dashboard/dashboard_datamapper.js",
+    "public/js/dashboard/binding/datamanager.js",
+    "public/js/dashboard/binding/binding_node.js",
+    "public/js/dashboard/binding/binding_model.js"
+  ],
+  "js/gridstack.min.js": [
+    "node_modules/gridstack/dist/gridstack.js",
+    "node_modules/gridstack/dist/jquery-ui.js",
+    "node_modules/gridstack/dist/gridstack.jQueryUI.js"
+  ],
+  "css/gridstack.min.css": [
+    "node_modules/gridstack/dist/gridstack.css",
+    "node_modules/gridstack/dist/gridstack-extra.css"
+  ]
+}

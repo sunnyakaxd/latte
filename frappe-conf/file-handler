@@ -1,0 +1,56 @@
+#location /files {
+#	try_files /site1.docker/public/$uri =404;
+#}
+
+# location /private/files {
+#	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#	proxy_set_header X-Remote-Addr $http_x_remote_addr;
+#	proxy_set_header X-Forwarded-Proto $scheme;
+#	proxy_set_header X-Frappe-Site-Name site1.docker;
+#	proxy_set_header X-ignore-2fa $http_x_ignore_2fa;
+#	proxy_set_header Host site1.docker;
+#	proxy_set_header X-Use-X-Accel-Redirect True;
+#	add_header X-LB-Host-Name $hostname always;
+#	proxy_set_header X-Request-Is-Local "";
+#	proxy_read_timeout 120;
+#	proxy_redirect off;
+#	proxy_pass  http://gunicorn-server;
+# }
+
+location /files/ {
+	resolver local=on;
+	set $proto "";
+	set $proxy "";
+	set $proxy_uri "";
+	set $resp_content_type "";
+	rewrite_by_lua_file /usr/local/openresty/nginx/conf/conf.d/lua/downloader.lua;
+	proxy_pass_request_headers on;
+	proxy_pass $proto://$proxy$proxy_uri;
+	add_header Content-Type $resp_content_type always;
+	#proxy_set_header Host site1.docker;
+	add_header X-LB-Host-Name $hostname always;
+}
+
+location /get_proxy_meta {
+	internal;
+	proxy_ignore_headers Cache-Control;
+	proxy_ignore_headers Set-Cookie;
+	proxy_cache_valid any 10s;
+	proxy_cache all_cache;
+	proxy_cache_lock on;
+	proxy_cache_key $proxy_host$request_uri$cookie_sid;
+	proxy_pass_request_body off;
+	proxy_set_header Content-Length "";
+	proxy_set_header X-Request-Uri $request_uri;
+	proxy_set_header X-Request-Is-Local 1;
+	proxy_set_header Host site1.docker;
+	proxy_pass http://gunicorn-server/api/method/latte.file_storage.get_proxy_meta;
+}
+
+location ~ /(public|private)/(.+) {
+	internal;
+	set $inside_try_files "Yes";
+	rewrite_by_lua_file /usr/local/openresty/nginx/conf/conf.d/lua/downloader.lua;
+	proxy_set_header Host site1.docker;
+	root /home/frappe/docker-bench/sites/site1.docker;
+}

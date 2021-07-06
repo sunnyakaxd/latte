@@ -1,0 +1,2 @@
+latte.patches.file_adapter_update
+execute:frappe.db.sql("""alter table `tabCustom DocPerm` drop index if exists unique_index_on_parent_role_permlevel""") #20210525

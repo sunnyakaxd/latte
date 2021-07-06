@@ -1,0 +1,40 @@
+{
+ "acceptable_data_lag": 0,
+ "add_total_row": 0,
+ "aggregate_function": "mean",
+ "cache_expiry": 0,
+ "caching_scope": "User",
+ "color": "",
+ "column_order": "",
+ "creation": "2021-02-05 12:13:25.720430",
+ "datasource": "",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "icon": "",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "",
+ "modified": "2021-02-05 12:13:25.720430",
+ "modified_by": "Administrator",
+ "module": "Latte Dev Utils",
+ "name": "SQL Analysis",
+ "owner": "Administrator",
+ "pivot_cell": "",
+ "pivot_column": "",
+ "pivot_index": "",
+ "prepared_report": 0,
+ "ref_doctype": "DocType",
+ "report_name": "SQL Analysis",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Administrator"
+  }
+ ],
+ "timeout": 60
+}

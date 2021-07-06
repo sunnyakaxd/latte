@@ -1,0 +1,1 @@
+frappe.ui.form.ControlFloat10 = frappe.ui.form.ControlFloat;

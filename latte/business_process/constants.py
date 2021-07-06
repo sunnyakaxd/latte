@@ -1,0 +1,4 @@
+POWERFLOW = 'Powerflow'
+HUMAN_TRANSITION_TYPE = 'Human'
+SYSTEM_TRANSITION_TYPE = 'System'
+POWERFFLOW_CURRENT_STATE_FIELD = '__powerflow_current_state'
